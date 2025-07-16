@@ -1,0 +1,19 @@
+language: "bn"  # Set the language to Bangla
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: LanguageModelFeaturizer
+    model_name: "bert" #or xlm-roberta
+    model_weights: "bert-base-multilingual-cased" # or appropriate
+  - name: DIETClassifier
+    epochs: 100
+    constrain_similarities: true
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 100
+    constrain_similarities: true
+policies:
+  - name: MemoizationPolicy
+  - name: TEDPolicy
+    max_history: 5
+    constrain_similarities: true
+    epochs: 100

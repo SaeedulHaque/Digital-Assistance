@@ -1,0 +1,24 @@
+intents:
+  - greet
+  - get_meeting_schedule
+  - set_reminder
+  - check_email 
+entities:
+  - date
+  - time
+  - email_count 
+slots:
+  date:
+    type: text
+  time:
+    type: text
+  email_count: 
+    type: number
+actions:
+  - utter_greet
+  - action_get_meeting_schedule
+  - action_set_reminder
+  - action_check_email 
+templates:
+  utter_greet:
+    - text: "হ্যালো! আমি আপনাকে কিভাবে সাহায্য করতে পারি?"
